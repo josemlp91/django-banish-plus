@@ -40,7 +40,7 @@ for dirpath, dirnames, filenames in os.walk('.'):
 
 setup ( name='django-banish-plus',
         version = "0.1",
-        install_requires=['python-memcached',"celery"]
+        install_requires=['python-memcached',"celery"],
         description = "django-banish-plus is a django middleware to ban users, prevent too many concurrent connections and TOR ips request",
         long_description = long_description,
         author = "intelligenia S.L.",
