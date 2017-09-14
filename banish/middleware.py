@@ -105,6 +105,8 @@ class BanishMiddleware(object):
 
         ips = cache.get(TOR_CACHE_KEY)
 
+        print ips
+
         if not ips:
             # Tor IP list not available; IP check not active
             return False

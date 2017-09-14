@@ -1,10 +1,14 @@
+# coding=utf-8
 import requests
+from celery.schedules import crontab
+from celery.task import periodic_task
 from django.core.cache import cache
 from celery import task
 from django.conf import settings
 from .models import Banishment
 
-@task()
+# Tarea celery periódica que se ejecuta el 1/12 a la 1:00 cada año.
+@periodic_task(run_every=crontab(minute=0))
 def clean_ip_blacklist():
     Banishment.objects.all().delete()
 
